@@ -19,17 +19,19 @@ tomcat_user = const.get('tomcat_user')
 HIPCHAT_WEB_HOOK = const.get('hipchat')
 REVIEWER = const.get('reviewer')
 DEV_NAME = const.get('dev_name')
+FOLDER = const.get('folder')
+LOG_FOLDER = const.get('log_folder')
 
 #Working on log
 def log(file=None):
-    with cd('/var/log/kb'):
+    with cd(LOG_FOLDER):
         if file == None:
             sudo('ls' , user='tomcat')
         else:
             sudo('tail -f %s' , user='tomcat')
 
 def log():
-    with cd('/usr/local/kb'):
+    with cd(FOLDER):
         result = run('git log --oneline -4')
         return result
 
@@ -38,14 +40,14 @@ def checkout(branch="lf-dev"):
             Switch the branch
     :param branch:
     """
-    with cd('/usr/local/kb'):
+    with cd(FOLDER):
         sudo('git fetch', user='tomcat')
         sudo('git checkout %s' % branch, user='tomcat')
         status()
 
 def status():
     """status"""
-    with cd('/usr/local/kb'):
+    with cd(FOLDER):
         sudo('git status', user='tomcat')
 
 
@@ -59,7 +61,7 @@ def deploy(branch=None):
     else:
         branch=env.branch
 
-    with cd('/usr/local/kb'):
+    with cd(FOLDER):
         sudo('git pull origin', user='tomcat')
         with cd('frontend/ingestion'):
             sudo('npm install', user='tomcat')

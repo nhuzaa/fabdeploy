@@ -6,3 +6,5 @@ tomcat_user: 'TOMCAT_USERNAME'
 hipchat: 'HIPCHAT_WEB_HOOK'
 reviewer : ["PR_REV1", "PR_REV2"]
 dev_name: 'YOUR_NAME'
+folder: 'FOLDER_PATH'
+log_folder: 'LOG_FOLDER_PATH'
