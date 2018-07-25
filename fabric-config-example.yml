@@ -1,0 +1,41 @@
+#SERVERS
+hosts:
+    outdev:  # hostname id
+        name: 'outdev-combo01'                                          # SSH hostname
+        user: 'USERNAME'                                                # SSH username
+        # password: 'PASSWORD'                                          # Not Recommended to add password
+        api_url: 'https://outdev-kb.acustream.com/knowledgebase/api'    # URL to the api for building frontend 
+        path: '/usr/local/kb'                                           # Path for project
+        log_path: '/var/log/kb'                                         # Path for log
+        branch: 'DEFAULT_BRANCH_TO_DEPLOY'                              # DEFAULT_BRANCH_TO_DEPLOY
+        tomcat_user: 'tomcat'                                           # tomcat user
+    uat:  # hostname id
+        name: 'outdev-combo01'                                          # SSH hostname
+        user: 'USERNAME'                                                # SSH username
+        # password: 'PASSWORD'                                          # Not Recommended to add password
+        api_url: 'https://outdev-kb.acustream.com/knowledgebase/api'    # URL to the api for building frontend 
+        path: '/usr/local/kb'                                           # Path for project
+        log_path: '/var/log/kb'                                         # Path for log
+        branch: 'DEFAULT_BRANCH_TO_DEPLOY'                              # DEFAULT_BRANCH_TO_DEPLOY
+        tomcat_user: 'tomcat'                                           # tomcat user
+
+#WEB_HOOKS
+notification:
+    hipchat: # notification id
+        enable: true 
+        message_key: 'message'
+        header: '(yey)'
+        default_msg: ' { "color":"green", "message":"test msg", "notify":True, "message_format":"text" }'
+        endpoint: '' # ENDPOINT FOR HIPCHAT
+    slack: # notification id 
+        enable: true
+        message_key: 'text'
+        header: ':robot_face:'
+        default_msg: '{"text":"default_msg"}'
+        endpoint: ''   # <<<< Change  ENDPOINT FOR SLACK
+
+
+#PR SENDER CONSTANTS
+reviewer : ['REVIEWER 1', 'REVIEWER 2']                                # Names of developers for requesting PR review
+dev_name: 'YOUR_NAME'                                                  # Yes your name 
+
